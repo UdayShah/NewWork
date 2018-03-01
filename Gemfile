@@ -16,9 +16,15 @@ gem 'coffee-rails',            '4.2.2'
 gem 'jquery-rails',            '4.3.1'
 gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.7.0'
-gem 'pg',                      '0.20.0'
+gem 'pg',                      '0.21.0'
 gem "font-awesome-rails"
 gem 'simple-line-icons-rails'
+gem 'video-js-rails'
+gem 'magnific-popup-rails'
+gem 'animate.css-rails'
+gem 'jquery-easing-rails'
+gem 'scrollreveal-rails'
+gem 'wow-rails'
 
 group :development, :test do
   gem 'byebug',  '9.0.6', platform: :mri
