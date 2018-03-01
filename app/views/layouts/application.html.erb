@@ -1,26 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
+<html>
+  <head>
+    <title>NewWork</title>
+    <%= csrf_meta_tags %>
 
-        <title>New Age - Start Bootstrap Theme</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-        <%= csrf_meta_tags %>
-        <%= stylesheet_link_tag    'application', media: 'all',
-                                                         'data-turbolinks-track': 'reload' %>
-        <%= render 'layouts/shim' %>
-
-    </head>
-
-    <body id="page-top">
-        <%= render 'layouts/header' %>
-
-        <%= yield %>
-
-        <%= render 'layouts/footer' %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </body>
+  <body>
+    <%= yield %>
+  </body>
 </html>

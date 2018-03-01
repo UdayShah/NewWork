@@ -21,7 +21,6 @@ gem "font-awesome-rails"
 gem 'simple-line-icons-rails'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
 end
 
@@ -38,10 +37,5 @@ group :test do
   gem 'guard',                    '2.14.1'
   gem 'guard-minitest',           '2.4.6'
 end
-
-group :production do
-  #gem 'pg', '0.20.0'
-end
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
