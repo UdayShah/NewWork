@@ -17,9 +17,7 @@
 
     <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-    <%= f.hidden_field :billing_id, :value => 1 %>
-
-    <%= f.hidden_field :shipping_id, :value => 1 %>
+    <br>
 
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
