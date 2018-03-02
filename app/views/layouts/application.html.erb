@@ -23,13 +23,13 @@
                 <div class="sk-cube3 sk-cube"></div>
             </div>
         </div>
+        <%= render 'layouts/navbar' %>
 
         <%= render 'layouts/header' %>
 
         <%= yield %>
 
         <%= render 'layouts/footer' %>
-
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </body>
 </html>
