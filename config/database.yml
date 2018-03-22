@@ -19,6 +19,7 @@ development:
   pool: 5
   username: newwork
   password: password
+  host: pgsql.shahuday.com
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -45,6 +46,7 @@ test:
   pool: 5
   username: newwork
   password: password
+  host: pgsql.shahuday.com
 
 production:
   adapter: postgresql
@@ -52,4 +54,5 @@ production:
   database: newwork_production
   pool: 5
   username: newwork
-password: password
+  password: password
+  host: pgsql.shahuday.com
