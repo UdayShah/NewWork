@@ -24,7 +24,6 @@ gem 'animate.css-rails'
 gem 'jquery-easing-rails'
 gem 'scrollreveal-rails'
 gem 'wow-rails'
-gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug',  '9.0.6', platform: :mri
