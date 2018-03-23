@@ -5,9 +5,14 @@
     <aside class="col-md-4">
       <section class="user-info">
         <h1>
+          <%= image_tag("users/noimage.jpg", width: "15%", class: "profile_picture") %>
           <%= @user.first_name %>
           <%= @user.last_name %>
         </h1>
+
+        <p>
+          Upload profile picture: <%= render 'upload' %>
+        </p>
       </section>
     </aside>
   </div>

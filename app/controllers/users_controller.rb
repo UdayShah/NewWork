@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-    before_action :correct_user,   only: [:edit, :update]
+    #before_action :correct_user,   only: [:edit, :update]
     before_action :admin_user,     only: :destroy
 
     def show
@@ -18,6 +18,13 @@ class UsersController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    def upload
+      uploaded_io = params[:person][:picture]
+      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
     end
 
     private
