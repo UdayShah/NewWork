@@ -6,5 +6,11 @@ Rails.application.routes.draw do
   delete '/logout',     to: 'sessions#destroy'
 
   resources :users
+  resources :users do
+      member do
+          post 'upload_profile'
+      end
+  end
+
   resources :sessions
 end

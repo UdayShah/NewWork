@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-    before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+    #before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
     #before_action :correct_user,   only: [:edit, :update]
-    before_action :admin_user,     only: :destroy
+    #before_action :admin_user,     only: :destroy
 
     def show
         @user = User.find(params[:id])
@@ -20,12 +20,28 @@ class UsersController < ApplicationController
         end
     end
 
-    def upload
-      uploaded_io = params[:person][:picture]
-      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-        file.write(uploaded_io.read)
-      end
+    def upload_profile
+        @user = User.find(params[:id])
+        uploaded_io = params[:file]
+        filename = "#{@user.id}_profile.jpg"
+        File.open(Rails.root.join('public', 'uploads',filename), 'wb') do |file|
+            file.write(uploaded_io.read)
+            # respond_to do |format|
+            #     format.html { redirect_to(root_url, :notice => 'File was uploaded.') }
+            # end
+        end
     end
+
+    # def get_profile_picture
+    #     @user = User.find(params[:id])
+    #     filename = "assets/images/profiles/#{@user.id}_profile.jpg"
+    #
+    #     if(File.exist?(filename))
+    #         @image = image_tag("profiles/#{@user.id}_profile.jpg", width: "15%", class: "profile_picture")
+    #     else
+    #         @image = image_tag('users/noimage.jpg', width: "15%", class: "profile_picture")
+    #     end
+    # end
 
     private
 
