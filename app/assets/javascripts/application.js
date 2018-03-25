@@ -10,6 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require bootstrap
+//= require rails-ujs
+//= require turbolinks
 //= require jquery.min
 //= require video.min
 //= require bootstrap.min
@@ -19,3 +23,4 @@
 //= require svg-injector.min
 //= require wow.min.js
 //= require custom
+= require_tree .

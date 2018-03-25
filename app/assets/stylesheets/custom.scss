@@ -78,6 +78,15 @@ p {
 aside {
   padding: 50px 0;
 }
+section.profile-body {
+  width: 80%;
+  background-color: white;
+  min-height: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.20), 0 10px 20px 0 rgba(0, 0, 0, 0.20);
+}
 .no-padding {
   padding: 0;
 }
@@ -409,6 +418,12 @@ fieldset[disabled] .btn-rect--dark.active {
 .btn-xl {
   padding: 15px 30px;
 }
+
+.upload-btn {
+  background-color: transparent;
+  color: black;
+  border-color: black;
+}
 ::-moz-selection {
   color: white;
   text-shadow: none;
@@ -430,6 +445,8 @@ img::-moz-selection {
 
 img.profile_picture {
   border-radius: 50%;
+  width: 125px;
+  height: 125px;
 }
 body {
   webkit-tap-highlight-color: #524e5d;

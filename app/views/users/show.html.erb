@@ -1,19 +1,31 @@
-<% provide(:title, @user.first_name) %>
+<%
+  title = "#{@user.first_name} #{@user.last_name}'s Profile"
+  provide(:title, title)
+%>
 
 <div class="general__image-gradient">
   <div class="header-mask">
-    <aside class="col-md-4">
+    <br/>
+    <br/>
+    <br/>
+    <div class="col-md-12">
       <section class="user-info">
+        <%=
+        if File.exist?(Rails.root.join('app', 'assets', 'images', 'users', "#{@user.id}_profile.jpg"))
+          image_tag("users/#{@user.id}_profile.jpg", class: "profile_picture")
+        else
+          image_tag('users/noimage.jpg', class: "profile_picture")
+        end
+        %>
         <h1>
-          <%= image_tag('users/noimage.jpg', width: "15%", class: "profile_picture") %>
           <%= @user.first_name %>
           <%= @user.last_name %>
         </h1>
-
-        <p>
-          Upload profile picture: <%= render 'upload' %>
-        </p>
       </section>
-    </aside>
+
+      <section class="profile-body no-bottom-padding">
+        <%= render 'upload' %>
+      </section>
+    </div>
   </div>
 </div>
