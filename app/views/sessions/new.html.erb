@@ -7,6 +7,12 @@
                 <div class="col-md-6 col-md-offset-3">
                     <h1 id="homeHeading" class="wow fadeInUp">Login</h1>
                     <hr>
+                    <% if flash[:danger].blank? %>
+                    <% else %>
+                      <div class="alert alert-danger">
+                        <%= flash[:danger] %>
+                      </div>
+                    <% end %>
                     <%= render 'form' %>
                 </div>
             </div>
