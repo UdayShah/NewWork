@@ -27,7 +27,7 @@
         if File.exist?(Rails.root.join('public', 'uploads', 'resumes', "#{@user.id}_resume.pdf"))
       %>
       <section class="resume-status found">
-        RESUME FOUND!!!
+        <a href="#about" class="btn btn-primary btn-xl page-scroll wow fadeInUp" data-wow-delay="0.6s">View Resume</a>
       </section>
       <%
         else
