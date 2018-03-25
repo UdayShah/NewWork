@@ -87,6 +87,22 @@ section.profile-body {
   padding-top: 50px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.20), 0 10px 20px 0 rgba(0, 0, 0, 0.20);
 }
+
+section.resume-status {
+  width: 80%;
+  min-height: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.20), 0 10px 20px 0 rgba(0, 0, 0, 0.20);
+}
+.found {
+  background-color: #33cc00;
+  color: black;
+}
+.not-found {
+  background-color: #ff3300;
+}
 .no-padding {
   padding: 0;
 }

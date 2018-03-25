@@ -11,11 +11,11 @@
     <div class="col-md-12">
       <section class="user-info">
         <%=
-        if File.exist?(Rails.root.join('app', 'assets', 'images', 'users', "#{@user.id}_profile.jpg"))
-          image_tag("users/#{@user.id}_profile.jpg", class: "profile_picture")
-        else
-          image_tag('users/noimage.jpg', class: "profile_picture")
-        end
+          if File.exist?(Rails.root.join('app', 'assets', 'images', 'users', "#{@user.id}_profile.jpg"))
+            image_tag("users/#{@user.id}_profile.jpg", class: "profile_picture")
+          else
+          i mage_tag('users/noimage.jpg', class: "profile_picture")
+          end
         %>
         <h1>
           <%= @user.first_name %>
@@ -23,8 +23,27 @@
         </h1>
       </section>
 
+      <%
+        if File.exist?(Rails.root.join('public', 'uploads', 'resumes', "#{@user.id}_resume.pdf"))
+      %>
+      <section class="resume-status found">
+        RESUME FOUND!!!
+      </section>
+      <%
+        else
+      %>
+      <section class="resume-status not-found">
+        <%= render 'uploadResume' %>
+      </section>
+      <%
+        end
+      %>
+
+      <br/>
+      <br/>
+
       <section class="profile-body no-bottom-padding">
-        <%= render 'upload' %>
+        <%= render 'uploadPicture' %>
       </section>
     </div>
   </div>

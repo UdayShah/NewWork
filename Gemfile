@@ -24,6 +24,7 @@ gem 'animate.css-rails'
 gem 'jquery-easing-rails'
 gem 'scrollreveal-rails'
 gem 'wow-rails'
+gem 'coffee-script-source', '1.8.0'
 
 group :development, :test do
   gem 'byebug',  '9.0.6', platform: :mri

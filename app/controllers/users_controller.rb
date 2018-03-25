@@ -20,12 +20,24 @@ class UsersController < ApplicationController
         end
     end
 
-    def upload_profile
+    def upload_picture
         @user = User.find(params[:id])
         uploaded_io = params[:file]
         filename = "#{@user.id}_profile.jpg"
-        File.open(Rails.root.join('public', 'uploads',filename), 'wb') do |file|
-            File.write(uploaded_io.read)
+        File.open(Rails.root.join('app', 'assets', 'images', 'users', filename), 'wb') do |file|
+            file.write(uploaded_io.read)
+            # respond_to do |format|
+            #     format.html { redirect_to(root_url, :notice => 'File was uploaded.') }
+            # end
+        end
+    end
+
+    def upload_resume
+        @user = User.find(params[:id])
+        uploaded_io = params[:file]
+        filename = "#{@user.id}_resume.pdf"
+        File.open(Rails.root.join('public', 'uploads', 'resumes', filename), 'wb') do |file|
+            file.write(uploaded_io.read)
             # respond_to do |format|
             #     format.html { redirect_to(root_url, :notice => 'File was uploaded.') }
             # end

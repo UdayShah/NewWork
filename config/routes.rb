@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :users
   resources :users do
       member do
-          post 'upload_profile'
+          post 'upload_picture'
+          post 'upload_resume'
       end
   end
 
