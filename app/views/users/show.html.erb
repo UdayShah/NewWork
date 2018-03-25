@@ -14,7 +14,7 @@
           if File.exist?(Rails.root.join('app', 'assets', 'images', 'users', "#{@user.id}_profile.jpg"))
             image_tag("users/#{@user.id}_profile.jpg", class: "profile_picture")
           else
-          i mage_tag('users/noimage.jpg', class: "profile_picture")
+            image_tag('users/noimage.jpg', class: "profile_picture")
           end
         %>
         <h1>
