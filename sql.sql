@@ -1,9 +1,10 @@
-CREATE TABLE users (
+pCREATE TABLE users (
     user_Id int NOT NULL AUTO_INCREMENT,
     location_Id int,
     employer_Id int,
     password VARCHAR NOT NULL (25),
-    Resume VARCHAR (50),
+    profile_pic VARCHAR(50),
+    resume VARCHAR (50),
     email VARCHAR NOT NULL(30),
     user_type CHAR NOT NULL,
     PRIMARY KEY (user_Id),
@@ -25,6 +26,13 @@ CREATE TABLE skillset (
     FOREIGN KEY (skill_Id) REFERENCES skills(skill_Id)
 );
 
+CREATE TABLE posting_response (
+    user_id int,
+    posting_id int,
+    choice int,
+    FOREIGN KEY (user_Id) REFERENCES users(user_Id),
+)
+
 CREATE TABLE job_posting (
     employer_id int,
     skill_id int,
@@ -32,6 +40,7 @@ CREATE TABLE job_posting (
     job_name VARCHAR(20) NOT NULL,
     job_description VARCHAR(300) NOT NULL,
     num_of_pos int NOT NULL,
+    skill_level int,
     FOREIGN KEY (employer_Id) REFERENCES employer(employer_Id),
     FOREIGN KEY (skill_Id) REFERENCES skills(skill_Id),
     FOREIGN KEY (location_Id) REFERENCES location(location_Id)
