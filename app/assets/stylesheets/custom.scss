@@ -95,6 +95,7 @@ div.resume-status {
   margin-left: auto;
   margin-right: auto;
   padding-top: 50px;
+  padding-bottom: 50px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.20), 0 10px 20px 0 rgba(0, 0, 0, 0.20);
 }
 .found {
@@ -441,25 +442,28 @@ fieldset[disabled] .btn-rect--dark.active {
   color: black;
   border-color: black;
 }
-.upload-btn {
+.upload-btn-label {
     position: relative;
     overflow: hidden;
-}
-
-.upload-btn input[type=file] {
-    position: absolute;
     top: 0;
     right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
     text-align: right;
     filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
+    outline: black;
+    background: transparent;
     cursor: inherit;
     display: block;
+    color: black;
+    border-color: black;
+    max-width: 25%;
+    max-height: 10%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.upload-btn {
+  opacity: 0;
+  font-size: 0px;
 }
 ::-moz-selection {
   color: white;
