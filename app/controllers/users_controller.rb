@@ -13,8 +13,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        @location = Location.new(location_params)
-
+        
         if @user.save
             redirect_to login_url
         else
