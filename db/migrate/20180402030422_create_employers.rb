@@ -1,4 +1,4 @@
-class Employers < ActiveRecord::Migration[5.1]
+class CreateEmployers < ActiveRecord::Migration[5.1]
   def change
     create_table :employers do |t|
       t.integer :location_id

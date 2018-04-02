@@ -13,12 +13,23 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        @location = Location.new(location_params)
+
         if @user.save
-            redirect_to login_url
+            redirect_to location_url
+
+            if @location.save
+                if params[:session][:is_employer] == '1'
+                  redirect_to user
+                else
+                  redirect_to skills_form
+            else
+                render 'location'
+            end
         else
             render 'new'
         end
-    end
+      end
 
     def upload_picture
         @user = User.find(params[:id])

@@ -17,6 +17,12 @@
 
     <%= f.password_field :password_confirmation, class: 'form-control' %>
 
+    <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.check_box :is_employer %>
+      <span>Check if you are an employer</span>
+    <% end %>
+
+
     <br>
 
     <%= f.submit yield(:button_text), class: "btn btn-primary" %>

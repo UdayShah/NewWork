@@ -1,4 +1,4 @@
-class Skillsets < ActiveRecord::Migration[5.1]
+class CreateSkillsets < ActiveRecord::Migration[5.1]
   def change
     create_table :skillsets do |t|
       t.integer :user_id
