@@ -1,13 +1,20 @@
-CREATE TABLE locations (
+CREATE TABLE provinces (
     id int NOT NULL,
     province VARCHAR(20) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE locations (
+    id int NOT NULL,
+    province_id INT NOT NULL,
     city VARCHAR(20) NOT NULL,
     address1 VARCHAR(30) NOT NULL,
     address2 VARCHAR(30),
     building_num VARCHAR(7),
     apt_num VARCHAR(7),
     postal_code VARCHAR(7),
-    PRIMARY KEY(id)
+    PRIMARY KEY(id),
+    FOREIGN KEY (province_id) REFERENCES provinces(id)
 );
 
 CREATE TABLE users (

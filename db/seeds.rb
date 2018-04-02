@@ -5,11 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create!(first_name: "Ducky",
-             last_name: "McDuckface",
-             password: "QuackQuackMotherFucker",
-             email: "ducky@quackbook.com")
-
 Province.create!(province: "AB")
 Province.create!(province: "BC")
 Province.create!(province: "MB")
@@ -23,3 +18,18 @@ Province.create!(province: "PE")
 Province.create!(province: "QC")
 Province.create!(province: "SK")
 Province.create!(province: "YT")
+
+Location.create!(province: "ON",
+                 city: "Oshawa",
+                 street: "Simcoe Street North",
+                 building_number: "2000",
+                 postal_code: "L1H7K4")
+
+User.create!(first_name: "Ducky",
+             last_name: "McDuckface",
+             password: "QuackQuack",
+             email: "ducky@quackbook.com",
+             location_id: 1,
+             profile_pic: "1_profile.jpg",
+             resume: "1_resume.pdf",
+             user_type: "w")
