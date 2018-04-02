@@ -4,9 +4,20 @@ class LocationsController < ApplicationController
     @province = Province.all
   end
 
+  def create
+    @location = Location.new(location_params)
+
+    if @location.save
+      redirect_to login_url
+    else
+      @province = Province.all
+      render 'new'
+    end
+  end
+
   private
 
-  def locations_params
+  def location_params
       params.require(:location).permit(:building_number, :street, :apartment_number, :postal_code,
                                    :city, :province)
   end

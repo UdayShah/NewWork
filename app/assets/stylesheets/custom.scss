@@ -465,6 +465,9 @@ fieldset[disabled] .btn-rect--dark.active {
   opacity: 0;
   font-size: 0px;
 }
+.form-dropdown {
+  min-width: 30%;
+}
 ::-moz-selection {
   color: white;
   text-shadow: none;
