@@ -11,9 +11,16 @@ class LocationsController < ApplicationController
       if session[:isUser] == true
         @user = User.find_by(user_id: session[:userid])
         @user.location_id = @location.id
-      end
 
-      redirect_to login_url
+        @user.update_columns(location_id: @user.location_id)
+
+        if @user.user_type == "e"
+          flash[:success] = "You account has been created. Please log in"
+          redirect_to login_url
+        else
+          redirect_to skills_url
+        end
+      end
     else
       @province = Province.all
       render 'new'
