@@ -10,19 +10,93 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302041904) do
+ActiveRecord::Schema.define(version: 20180401223124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "employers", force: :cascade do |t|
+    t.integer "location_id"
+    t.integer "user_id"
+    t.boolean "approved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "province"
+    t.string "city"
+    t.string "address1"
+    t.string "address2"
+    t.string "apt_num"
+    t.string "postal_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posting_response", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "posting_id"
+    t.integer "response"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "postings", force: :cascade do |t|
+    t.integer "employer_id"
+    t.integer "location_id"
+    t.string "job_name"
+    t.string "job_description"
+    t.integer "positions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "required_skills", force: :cascade do |t|
+    t.integer "posting_id"
+    t.integer "skill_id"
+    t.integer "skill_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.integer "skill_id"
+    t.string "skill_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skillsets", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "skill_id"
+    t.integer "skill_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "password_digest"
     t.string "email"
+    t.integer "location_id"
+    t.string "profile_pic"
+    t.string "resume"
+    t.boolean "user_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"
   end
 
+  add_foreign_key "employers", "users"
+  add_foreign_key "posting_response", "postings"
+  add_foreign_key "posting_response", "users"
+  add_foreign_key "postings", "employers"
+  add_foreign_key "postings", "locations"
+  add_foreign_key "required_skills", "postings"
+  add_foreign_key "required_skills", "skills"
+  add_foreign_key "skillsets", "skills"
+  add_foreign_key "skillsets", "users"
+  add_foreign_key "users", "locations"
 end

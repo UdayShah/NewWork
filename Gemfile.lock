@@ -67,6 +67,8 @@ GEM
     coffee-script-source (1.8.0)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    dropbox-sdk (1.6.5)
+      json
     erubi (1.7.1)
     excon (0.62.0)
     execjs (2.7.0)
@@ -389,6 +391,7 @@ DEPENDENCIES
   carrierwave (= 1.1.0)
   coffee-rails (= 4.2.2)
   coffee-script-source (= 1.8.0)
+  dropbox-sdk
   faker (= 1.7.3)
   fog (= 1.40.0)
   font-awesome-rails

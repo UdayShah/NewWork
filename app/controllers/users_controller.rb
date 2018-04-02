@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-    #before_action :correct_user,   only: [:edit, :update]
-    #before_action :admin_user,     only: :destroy
+    before_action :correct_user,   only: [:edit, :update]
+    before_action :admin_user,     only: :destroy
 
     def show
         @user = User.find(params[:id])
@@ -26,9 +26,7 @@ class UsersController < ApplicationController
         filename = "#{@user.id}_profile.jpg"
         File.open(Rails.root.join('app', 'assets', 'images', 'users', filename), 'wb') do |file|
             file.write(uploaded_io.read)
-            # respond_to do |format|
-            #     format.html { redirect_to(root_url, :notice => 'File was uploaded.') }
-            # end
+            redirect_to @user
         end
     end
 
@@ -38,9 +36,7 @@ class UsersController < ApplicationController
         filename = "#{@user.id}_resume.pdf"
         File.open(Rails.root.join('public', 'uploads', 'resumes', filename), 'wb') do |file|
             file.write(uploaded_io.read)
-            # respond_to do |format|
-            #     format.html { redirect_to(root_url, :notice => 'File was uploaded.') }
-            # end
+            redirect_to @user
         end
     end
 
