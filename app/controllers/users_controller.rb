@@ -16,16 +16,7 @@ class UsersController < ApplicationController
         @location = Location.new(location_params)
 
         if @user.save
-            redirect_to location_url
-
-            if @location.save
-                if params[:session][:is_employer] == '1'
-                  redirect_to user
-                else
-                  redirect_to skills_form
-            else
-                render 'location'
-            end
+            redirect_to login_url
         else
             render 'new'
         end
