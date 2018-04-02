@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401223124) do
+ActiveRecord::Schema.define(version: 20180402042744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,15 +26,15 @@ ActiveRecord::Schema.define(version: 20180401223124) do
   create_table "locations", force: :cascade do |t|
     t.string "province"
     t.string "city"
-    t.string "address1"
-    t.string "address2"
+    t.string "street"
+    t.string "building_number"
     t.string "apt_num"
     t.string "postal_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "posting_response", force: :cascade do |t|
+  create_table "posting_responses", force: :cascade do |t|
     t.integer "user_id"
     t.integer "posting_id"
     t.integer "response"
@@ -48,6 +48,12 @@ ActiveRecord::Schema.define(version: 20180401223124) do
     t.string "job_name"
     t.string "job_description"
     t.integer "positions"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "province"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -90,8 +96,8 @@ ActiveRecord::Schema.define(version: 20180401223124) do
   end
 
   add_foreign_key "employers", "users"
-  add_foreign_key "posting_response", "postings"
-  add_foreign_key "posting_response", "users"
+  add_foreign_key "posting_responses", "postings"
+  add_foreign_key "posting_responses", "users"
   add_foreign_key "postings", "employers"
   add_foreign_key "postings", "locations"
   add_foreign_key "required_skills", "postings"

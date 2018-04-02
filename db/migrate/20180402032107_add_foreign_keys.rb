@@ -13,7 +13,7 @@ class AddForeignKeys < ActiveRecord::Migration[5.1]
     add_foreign_key :required_skills, :postings, column: :posting_id, primary_key: :id
     add_foreign_key :required_skills, :skills, column: :skill_id, primary_key: :id
 
-    add_foreign_key :posting_response, :users, column: :user_id, primary_key: :id
-    add_foreign_key :posting_response, :postings, column: :posting_id, primary_key: :id
+    add_foreign_key :posting_responses, :users, column: :user_id, primary_key: :id
+    add_foreign_key :posting_responses, :postings, column: :posting_id, primary_key: :id
   end
 end

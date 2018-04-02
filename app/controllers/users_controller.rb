@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        
+
         if @user.save
             redirect_to login_url
         else
@@ -60,5 +60,10 @@ class UsersController < ApplicationController
             flash[:danger] = "Please log in."
             redirect_to login_url
         end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless @user == current_user
     end
 end
