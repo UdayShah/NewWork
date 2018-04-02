@@ -8,6 +8,11 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
 
     if @location.save
+      if session[:isUser] == true
+        @user = User.find_by(user_id: session[:userid])
+        @user.location_id = @location.id
+      end
+
       redirect_to login_url
     else
       @province = Province.all

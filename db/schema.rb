@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20180402191713) do
   enable_extension "plpgsql"
 
   create_table "employers", force: :cascade do |t|
-    t.integer "location_id"
     t.integer "user_id"
     t.boolean "approved"
     t.datetime "created_at", null: false
@@ -43,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180402191713) do
   end
 
   create_table "postings", force: :cascade do |t|
+    t.integer "posting_id"
     t.integer "employer_id"
     t.integer "location_id"
     t.string "job_name"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20180402191713) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer "user_id"
     t.string "first_name"
     t.string "last_name"
     t.string "password_digest"
@@ -89,7 +90,7 @@ ActiveRecord::Schema.define(version: 20180402191713) do
     t.integer "location_id"
     t.string "profile_pic"
     t.string "resume"
-    t.boolean "user_type"
+    t.string "user_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"

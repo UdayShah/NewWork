@@ -13,18 +13,23 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        @user.user_id = User.last.user_id + 1
+        @user.profile_pic = "#{@user.user_id}_profile.jpg"
+        @user.resume = "#{@user.user_id}_resume.pdf"
 
         if @user.save
-            redirect_to locations_url
+          session[:isUser] = true
+          session[:userid] = @user.user_id
+          redirect_to locations_url
         else
-            render 'new'
+          render 'new'
         end
       end
 
     def upload_picture
         @user = User.find(params[:id])
         uploaded_io = params[:file]
-        filename = "#{@user.id}_profile.jpg"
+        filename = "#{@user.user_id}_profile.jpg"
         File.open(Rails.root.join('app', 'assets', 'images', 'users', filename), 'wb') do |file|
             file.write(uploaded_io.read)
             redirect_to @user
@@ -34,7 +39,7 @@ class UsersController < ApplicationController
     def upload_resume
         @user = User.find(params[:id])
         uploaded_io = params[:file]
-        filename = "#{@user.id}_resume.pdf"
+        filename = "#{@user.user_id}_resume.pdf"
         File.open(Rails.root.join('public', 'uploads', 'resumes', filename), 'wb') do |file|
             file.write(uploaded_io.read)
             redirect_to @user
@@ -51,7 +56,7 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:first_name, :last_name, :email, :password,
-                                     :password_confirmation)
+                                     :password_confirmation, :user_type)
     end
 
     def logged_in_user

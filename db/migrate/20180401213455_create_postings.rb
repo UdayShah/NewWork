@@ -1,6 +1,7 @@
 class CreatePostings < ActiveRecord::Migration[5.1]
   def change
     create_table :postings do |t|
+      t.integer :posting_id
       t.integer :employer_id
       t.integer :location_id
       t.string :job_name
