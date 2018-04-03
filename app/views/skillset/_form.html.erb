@@ -1,0 +1,18 @@
+<%= form_for(@skillset) do |f| %>
+    <%= render 'error_messages', object: @skillset %>
+
+    <%= fields_for :skills do |skill| %>
+      <%= skill.label :skill_name %>
+      <%= skill.text_field :skill_name, class: 'form-control' %>
+    <% end %>
+
+    <%= f.label :skill_level %>
+    <% options = options_from_collection_for_select(@skill_level, 'id', 'skill_level') %>
+    <%= f.select :skill_level, options, {prompt: "Select skill level"}, {:class => 'form-control'} %>
+
+    <%= f.hidden_field :user_id, :value => @user.id %>
+
+    <br>
+
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

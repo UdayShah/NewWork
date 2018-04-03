@@ -13,12 +13,6 @@
                         <%= flash[:danger] %>
                       </div>
                     <% end %>
-                    <% if flash[:userLocation].blank? %>
-                    <% else %>
-                      <div class="alert alert-danger">
-                        <%= flash[:userLocation] %>
-                      </div>
-                    <% end %>
                     <%= render 'form' %>
                 </div>
             </div>

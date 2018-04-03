@@ -1,0 +1,27 @@
+<% provide(:title, 'Skills Form') %>
+<% provide(:button_text, 'Add') %>
+<div class="general__image-gradient">
+    <div class="header-mask">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <div class="col-md-6 col-md-offset-3">
+                    <h1 id="homeHeading" class="wow fadeInUp">Add your skills</h1>
+                    <hr>
+                    <% if flash[:saved].blank? %>
+                    <% else %>
+                      <div class="alert alert-danger">
+                        <%= flash[:saved] %>
+                      </div>
+                    <% end %>
+                    <% if flash[:notsaved].blank? %>
+                    <% else %>
+                      <div class="alert alert-danger">
+                        <%= flash[:notsaved] %>
+                      </div>
+                    <% end %>
+                    <%= render 'form' %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

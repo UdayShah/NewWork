@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
           flash[:success] = "You account has been created. Please log in"
           redirect_to login_url
         else
-          redirect_to skills_url
+          redirect_to skillsets_url
         end
       end
     else
