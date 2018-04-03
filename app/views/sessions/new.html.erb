@@ -13,6 +13,13 @@
                         <%= flash[:danger] %>
                       </div>
                     <% end %>
+
+                    <% if flash[:saved].blank? %>
+                    <% else %>
+                      <div class="alert alert-success">
+                        <%= flash[:saved] %>
+                      </div>
+                    <% end %>
                     <%= render 'form' %>
                 </div>
             </div>

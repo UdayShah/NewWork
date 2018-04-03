@@ -15,7 +15,7 @@ class LocationsController < ApplicationController
         @user.update_columns(location_id: @user.location_id)
 
         if @user.user_type == "e"
-          flash[:success] = "You account has been created. Please log in"
+          flash[:saved] = "You account has been created. Please log in"
           redirect_to login_url
         else
           redirect_to skillsets_url

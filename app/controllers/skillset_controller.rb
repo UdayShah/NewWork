@@ -22,13 +22,12 @@ class SkillsetController < ApplicationController
     end
 
     if @skillset.save
-      flash[:saved] = "skill set saved"
+      flash[:saved] = "You account has been created. Please log in"
+      redirect_to login_url
     else
-      flash[:notsaved] = "skillset not saved"
+      flash[:notsaved] = "Error. Please try again"
+      redirect_to skillsets_url
     end
-
-
-    redirect_to skillsets_url
   end
 
   private
