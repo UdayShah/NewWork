@@ -1,18 +1,19 @@
-class SkillsetController < ApplicationController
+class SkillsetsController < ApplicationController
   def new
     @skillset = Skillset.new
     @skill_level = SkillLevel.all
     @user = User.find_by(user_id: session[:userid])
   end
 
+  def show
+  end
+
   def create
     @skillset = Skillset.new(skillset_params)
 
-    flash[:found] = "getting to create"
-
     @newSkill = Skill.new(skill_params)
 
-    if Skill.exists?(:skill_name => @newSkill.skill_name)
+    if Skill.exists?(:skill_name => @newSkill.skill_name.downcase)
       @skill = Skill.find_by(skill_name: @newSkill.skill_name.downcase)
       @skillset.skill_id = @skill.id
     else
@@ -21,13 +22,23 @@ class SkillsetController < ApplicationController
       end
     end
 
-    if @skillset.save
-      flash[:saved] = "You account has been created. Please log in"
-      redirect_to login_url
-    else
-      flash[:notsaved] = "Error. Please try again"
+    if Skillset.exists?(:user_id => session[:userid], :skill_id => @skillset.skill_id)
+      flash[:notsaved] = "Skill already added"
       redirect_to skillsets_url
+    else
+      if @skillset.save
+        flash[:saved] = "Skill Added"
+        redirect_to skillsets_url
+      else
+        flash[:notsaved] = "Error. Please try again"
+        redirect_to skillsets_url
+      end
     end
+  end
+
+  def submit
+    flash[:created] = "You account has been created. Please log in"
+    redirect_to login_url
   end
 
   private

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'skillset/new'
+  get 'skillsets/new'
 
   get 'skills/new'
 
@@ -9,18 +9,18 @@ Rails.application.routes.draw do
   post   '/login',         to: 'sessions#create'
   delete '/logout',        to: 'sessions#destroy'
   get    '/locations',     to: 'locations#new'
-  get    '/skillsets',     to: 'skillset#new'
-  post   '/skillsets',     to: 'skillset#create'
+  get    '/skillsets',     to: 'skillsets#new'
+  post   '/skillsets',     to: 'skillsets#create'
 
   resources :users
   resources :users do
-      member do
-          post 'upload_picture'
-          post 'upload_resume'
-      end
+    member do
+      post 'upload_picture'
+      post 'upload_resume'
+    end
   end
   resources :sessions
   resources :locations
   resources :skills
-  resources :skillset
+  resources :skillsets
 end

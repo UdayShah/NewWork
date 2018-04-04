@@ -14,10 +14,10 @@
                       </div>
                     <% end %>
 
-                    <% if flash[:saved].blank? %>
+                    <% if flash[:created].blank? %>
                     <% else %>
                       <div class="alert alert-success">
-                        <%= flash[:saved] %>
+                        <%= flash[:created] %>
                       </div>
                     <% end %>
                     <%= render 'form' %>
