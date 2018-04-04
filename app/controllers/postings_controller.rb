@@ -6,8 +6,8 @@ class PostingsController < ApplicationController
   end
 
   def create
-    @posting = posting.new(posting_params)
-    @posting.posting_id = posting.last.posting_id + 1
+    @posting = Posting.new(posting_params)
+    @posting.posting_id = Posting.last.posting_id + 1
 
     if @posting.save
       session[:isUser] = false
@@ -16,7 +16,7 @@ class PostingsController < ApplicationController
     else
       render 'new'
   end
-
+  end
   def show
     @user = User.find(session[:userid])
     @percent = 60
@@ -49,7 +49,7 @@ class PostingsController < ApplicationController
 
 
     def posting_params
-        params.require(:user).permit(:job_name, :job_descripotion, :employer_id, :location_id,
+        params.require(:posting).permit(:job_name, :job_description, :employer_id, :location_id,
                                      :positions)
     end
 end

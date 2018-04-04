@@ -27,8 +27,8 @@ class LocationsController < ApplicationController
         @posting.update_columns(location_id: @posting.location_id)
 
         flash[:created] = "Posting created"
-
-        redirect_to login_url
+		redirect_to current_user
+        
       end
     else
       @province = Province.all
