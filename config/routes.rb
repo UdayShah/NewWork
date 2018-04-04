@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'postings/new'
+
+  get 'postings/show'
+
   get 'skillsets/new'
 
   get 'skills/new'
@@ -13,6 +17,8 @@ Rails.application.routes.draw do
   get    '/locations',     to: 'locations#new'
   get    '/skillsets',     to: 'skillsets#new'
   post   '/skillsets',     to: 'skillsets#create'
+  get    '/postings',      to: 'postings#show'
+
 
   resources :users
   resources :users do
@@ -25,4 +31,5 @@ Rails.application.routes.draw do
   resources :locations
   resources :skills
   resources :skillsets
+  resources :postings
 end

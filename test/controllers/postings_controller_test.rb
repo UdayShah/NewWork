@@ -6,4 +6,9 @@ class PostingsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get show" do
+    get postings_show_url
+    assert_response :success
+  end
+
 end
