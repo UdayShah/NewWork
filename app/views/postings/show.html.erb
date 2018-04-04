@@ -6,7 +6,9 @@
                     <h1 id="homeHeading" class="wow fadeInUp">Job Postings</h1>
                     <hr>
                     <div class="profile-body">
-                      
+                      <%= @q4.pluck(:job_name).first %>
+                      <hr>
+                      <%= @q4.pluck(:job_description).first %>
                     </div>
                 </div>
             </div>

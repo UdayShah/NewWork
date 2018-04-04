@@ -6,8 +6,6 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @skillsets = Skillset.where(user_id: @user.id)
-        #@skills = Skill.find(@skillsets.skill_id)
-        #@skills = Skill.find(@skillsets)
     end
 
     def new
