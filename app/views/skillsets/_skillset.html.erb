@@ -1,3 +1,8 @@
-<li>
-  <%= Skill.find(skillset.skill_id).skill_name %>
-</li>
+<tr>
+	<td>
+		<%= Skill.find(skillset.skill_id).skill_name %>
+	</td>
+	<td>
+		<%= skillset.skill_level %>
+	</td>
+</tr>

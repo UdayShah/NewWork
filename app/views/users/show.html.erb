@@ -8,7 +8,11 @@
     <div class="header-content">
       <div class="header-content-inner">
         <div class="col-md-12">
-          <%=
+          </br>
+		  </br>
+		  </br>
+		  </br>
+		  <%=
             if File.exist?(Rails.root.join('app', 'assets', 'images', 'users', "#{@user.id}_profile.jpg"))
               image_tag("users/#{@user.id}_profile.jpg", class: "profile_picture")
             else

@@ -84,8 +84,8 @@ div.profile-body {
   min-height: 25px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.20), 0 10px 20px 0 rgba(0, 0, 0, 0.20);
   color: black;
 }
@@ -2369,3 +2369,26 @@ section.faqs .faq p {
     opacity: 0;
   }
 }
+table { 
+	width: 98%; 
+	border-collapse: collapse; 
+	margin:50px auto;
+	}
+
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+	background: #eee; 
+	}
+
+th { 
+	background: #3498db; 
+	color: white; 
+	font-weight: bold; 
+	}
+
+td, th { 
+	padding: 10px; 
+	border: 1px solid #ccc; 
+	text-align: left; 
+	font-size: 18px;
+	}

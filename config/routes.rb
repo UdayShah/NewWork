@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'postings/new'
+
 
   get 'postings/show'
 
@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   get    '/skillsets',     to: 'skillsets#new'
   post   '/skillsets',     to: 'skillsets#create'
   get    '/postings',      to: 'postings#show'
-
+  get    '/postings/new', to: 'postings#new'  
+  post   '/postings/new', to: 'postings#create'  
 
   resources :users
   resources :users do
