@@ -1,17 +1,22 @@
 class PostingsController < ApplicationController
   def new
-  @posting = Posting.new
-  @user = User.find(session[:userid])
-  @employer = Employer.where(user_id: @user.id)
+    @posting = Posting.new
+    @user = User.find(session[:userid])
+    @employer = Employer.find_by(user_id: @user.id)
   end
 
-      def create
-        @posting = posting.new(posting_params)
-        @posting.posting_id = posting.last.posting_id + 1
-        
-        
-      end
-  
+  def create
+    @posting = posting.new(posting_params)
+    @posting.posting_id = posting.last.posting_id + 1
+
+    if @posting.save
+      session[:isUser] = false
+      session[:postingid] = @posting.posting_id
+      redirect_to locations_url
+    else
+      render 'new'
+  end
+
   def show
     @user = User.find(session[:userid])
     @percent = 60
@@ -41,8 +46,8 @@ class PostingsController < ApplicationController
       end
     end
   end
-  
-  
+
+
     def posting_params
         params.require(:user).permit(:job_name, :job_descripotion, :employer_id, :location_id,
                                      :positions)

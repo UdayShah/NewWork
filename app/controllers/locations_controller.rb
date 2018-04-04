@@ -20,6 +20,15 @@ class LocationsController < ApplicationController
         else
           redirect_to skillsets_url
         end
+      else
+        @posting = Posting.find_by(posting_id: session[:postingid])
+        @posting.location_id = @location.id
+
+        @posting.update_columns(location_id: @posting.location_id)
+
+        flash[:created] = "Posting created"
+
+        redirect_to login_url
       end
     else
       @province = Province.all
