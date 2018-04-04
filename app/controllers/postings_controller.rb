@@ -20,7 +20,7 @@ class PostingsController < ApplicationController
   def show
     @user = User.find(session[:userid])
     @percent = 60
-	@
+	
     @q1 = RequiredSkill.find_by_sql(
       "SELECT required_skills.posting_id
        FROM required_skills inner join skillsets on #{@user.id} = skillsets.user_id
