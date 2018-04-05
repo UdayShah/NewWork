@@ -10,31 +10,30 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-              <% if logged_in? %>
+          <ul class="nav navbar-nav navbar-right">
+            <% if logged_in? %>
+              <% if current_user.user_type == "w" %>
                 <li>
-                  <%= link_to "Log out", logout_path, method: :delete %>
-                </li>
-              <% else %>
-                <li>
-                  <%= link_to 'Log In', login_path, class: "page-scroll" %>
-                </li>
-                <li>
-                  <%= link_to 'Sign Up', signup_path, class: "page-scroll" %>
+                  <%= link_to 'Postings', postings_path, class: "page-scroll" %>
                 </li>
               <% end %>
-			  <% if logged_in? %>
-			   <li>
-                  <%= link_to 'Postings', postings_path, class: "page-scroll" %>
-
-               </li>
-			   <li>
-			    <%= link_to 'Skills', skillsets_path, class: "page-scroll" %>
-			   </li>
-			   	<li>
-                  <%= link_to 'Profile', current_user, class: "page-scroll" %>
-               </li>
-
+              <li>
+                <%= link_to 'Skills', skillsets_path, class: "page-scroll" %>
+              </li>
+              <li>
+                <%= link_to 'Profile', current_user, class: "page-scroll" %>
+              </li>
+              <li>
+                <%= link_to "Log out", logout_path, method: :delete %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to 'Log In', login_path, class: "page-scroll" %>
+              </li>
+              <li>
+                <%= link_to 'Sign Up', signup_path, class: "page-scroll" %>
+              </li>
+            <% end %>
 				<% end %>
             </ul>
         </div>
